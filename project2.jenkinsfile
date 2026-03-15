@@ -1,0 +1,21 @@
+pipeline {
+    agent any {
+        stages{
+            stage ("Build"){
+                steps{
+                    sh 'mvn install -DskipTests'
+                }
+            }
+            stage("test"){
+                steps{
+                    sh 'mvn test'
+                }
+            }
+        stage("deploy"){
+            steps{
+                sh 'echo deploying the project'
+            }
+        }
+      }
+    }
+}
